@@ -1,3 +1,4 @@
+package agh.po.lab1;
 public class Choinka{
     public static void main(String[] args){
         int rozmiar = Integer.parseInt(args[0]);
