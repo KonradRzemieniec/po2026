@@ -3,23 +3,43 @@ package agh.po.lab2;
 import java.util.Random;
 import java.util.ArrayList;
 
-
-
-
 public class Lotto {
     public static void main(String[] args) {
-        Random rand = new Random();
-        int ile_liczb = 1;
-        ArrayList<Integer> lista = new ArrayList<>();
-
-
-        while(ile_liczb<6){
-            int n =rand.nextInt(48);
-            n += 1;
-            lista.add(n);
-            ile_liczb += 1;
+        ArrayList<Integer> mojeTypy = new ArrayList<>();
+        for (int i = 0; i < args.length; i++) {
+            mojeTypy.add(Integer.parseInt(args[i]));
         }
-        System.out.println(lista);
 
+        Random rand = new Random();
+        long liczbaLosowan = 0;
+        int trafienia = 0;
+
+        long czasStart = System.currentTimeMillis();
+
+        while (trafienia < 6) {
+            liczbaLosowan++;
+
+            ArrayList<Integer> wylosowane = new ArrayList<>();
+            while (wylosowane.size() < 6) {
+                int n = rand.nextInt(49) + 1;
+                if (!wylosowane.contains(n)) {
+                    wylosowane.add(n);
+                }
+            }
+
+            trafienia = 0;
+            for (int liczba : mojeTypy) {
+                if (wylosowane.contains(liczba)) {
+                    trafienia++;
+                }
+            }
+        }
+
+        long czasKoniec = System.currentTimeMillis();
+        long czasTrwania = czasKoniec - czasStart;
+
+        System.out.println("Trafiono 6/6!");
+        System.out.println("Liczba losowań: " + liczbaLosowan);
+        System.out.println("Łączny czas: " + czasTrwania + " ms (" + (czasTrwania / 1000.0) + " s)");
     }
 }
