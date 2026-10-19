@@ -28,11 +28,16 @@ public class Lotto {
             }
 
             trafienia = 0;
-            for (int liczba : mojeTypy) {
+            /*for (int liczba : mojeTypy) {
                 if (wylosowane.contains(liczba)) {
                     trafienia++;
                 }
             }
+
+             */
+            wylosowane.retainAll(mojeTypy);
+            trafienia = wylosowane.size();
+
         }
 
         long czasKoniec = System.currentTimeMillis();
@@ -41,5 +46,7 @@ public class Lotto {
         System.out.println("Trafiono 6/6!");
         System.out.println("Liczba losowań: " + liczbaLosowan);
         System.out.println("Łączny czas: " + czasTrwania + " ms (" + (czasTrwania / 1000.0) + " s)");
+        long parametr = liczbaLosowan / czasTrwania;
+        System.out.println("Parametr " + parametr + " losowania/s");
     }
 }
