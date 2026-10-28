@@ -19,4 +19,14 @@ public class CodingBatTest {
         assertEquals(true,cb1.lucky13(new int[]{2, 7, 2, 8}));
         assertEquals(false,cb1.lucky13(new int[]{1, 2, 4}));
     }
+
+    @Test
+    public void sameEnds() {
+        CodingBat cb2 = new CodingBat();
+        assertEquals("ab", cb2.sameEnds("abXYab"));
+        assertEquals("x", cb2.sameEnds("xx"));
+        assertEquals("x", cb2.sameEnds("xxx"));
+        assertEquals("", cb2.sameEnds("abc"));
+        assertEquals("", cb2.sameEnds(""));
+    }
 }

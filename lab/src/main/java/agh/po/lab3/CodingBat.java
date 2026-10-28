@@ -14,6 +14,22 @@ public class CodingBat {
         return true;
     }
 
+    public String sameEnds(String string) {
+        int n = string.length();
+        for(int i = n /2; i >=1; i--){
+            String poczatek = string.substring(0, i);
+            String koniec = string.substring(n - i);
+
+            if(poczatek.equals(koniec)) {
+                return poczatek;
+            }
+
+
+
+        }
+        return "";
+    }
+
 
     public static void main(String[] args) {
         CodingBat codingbat = new CodingBat();
