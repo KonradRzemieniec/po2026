@@ -1,6 +1,8 @@
 package agh.po.lab3;
 
 import org.junit.Test;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -28,5 +30,16 @@ public class CodingBatTest {
         assertEquals("x", cb2.sameEnds("xxx"));
         assertEquals("", cb2.sameEnds("abc"));
         assertEquals("", cb2.sameEnds(""));
+    }
+
+    @Test
+    public void mapAB4() {
+        CodingBat cb3 = new CodingBat();
+        Map<String, String> wejscie = new HashMap<>(Map.of("a", "aaa", "b", "bb"));
+
+        assertEquals(
+                Map.of("a", "aaa", "b", "bb", "c", "aaa"),
+                cb3.mapAB4(wejscie)
+        );
     }
 }
