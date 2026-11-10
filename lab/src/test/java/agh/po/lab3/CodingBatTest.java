@@ -11,15 +11,15 @@ public class CodingBatTest {
     @Test
     public void array123() {
         CodingBat cb = new CodingBat();
-        assertEquals(true,cb.array123(new int[]{1,2,3,4,}));
-        assertEquals(true,cb.array123(new int[]{1,2,3,5,}));
+        assertTrue(cb.array123(new int[]{1, 2, 3, 4,}));
+        assertTrue(cb.array123(new int[]{1, 2, 3, 5,}));
     }
 
     @Test
     public void lucky13() {
         CodingBat cb1 = new CodingBat();
-        assertEquals(true,cb1.lucky13(new int[]{2, 7, 2, 8}));
-        assertEquals(false,cb1.lucky13(new int[]{1, 2, 4}));
+        assertTrue(cb1.lucky13(new int[]{2, 7, 2, 8}));
+        assertFalse(cb1.lucky13(new int[]{1, 2, 4}));
     }
 
     @Test
@@ -40,6 +40,17 @@ public class CodingBatTest {
         assertEquals(
                 Map.of("a", "aaa", "b", "bb", "c", "aaa"),
                 cb3.mapAB4(wejscie)
+        );
+    }
+
+    @Test
+    public void pairs() {
+        CodingBat cb4 = new CodingBat();
+        String[] wejscie = {"code", "bug"};
+
+        assertEquals(
+                Map.of("c", "e", "b", "g"),
+                cb4.pairs(wejscie)
         );
     }
 }

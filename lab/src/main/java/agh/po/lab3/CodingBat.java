@@ -1,5 +1,6 @@
 package agh.po.lab3;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CodingBat {
@@ -10,8 +11,8 @@ public class CodingBat {
         return false;
     }
     public boolean lucky13(int[] nums) {
-        for(int i=0; i < (nums.length); i++){
-            if(nums[i] ==1 || nums[i] ==3) return false;
+        for (int num : nums) {
+            if (num == 1 || num == 3) return false;
         }
         return true;
     }
@@ -48,6 +49,18 @@ public class CodingBat {
         }
 
         return map;
+    }
+    public Map<String, String> pairs(String[] strings){
+        Map<String, String> result = new HashMap<>();
+
+        for (String word : strings){
+            String first = word.substring(0, 1);
+            String last = word.substring(word.length() - 1);
+            result.put(first, last);
+
+        }
+
+        return result;
     }
 
 

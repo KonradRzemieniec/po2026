@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Lotto {
     public static void main(String[] args) {
         ArrayList<Integer> mojeTypy = new ArrayList<>();
-        for (int i = 0; i < args.length; i++) {
-            mojeTypy.add(Integer.parseInt(args[i]));
+        for (String arg : args) {
+            mojeTypy.add(Integer.parseInt(arg));
         }
 
         Random rand = new Random();
@@ -27,14 +27,6 @@ public class Lotto {
                 }
             }
 
-            trafienia = 0;
-            /*for (int liczba : mojeTypy) {
-                if (wylosowane.contains(liczba)) {
-                    trafienia++;
-                }
-            }
-
-             */
             wylosowane.retainAll(mojeTypy);
             trafienia = wylosowane.size();
 
