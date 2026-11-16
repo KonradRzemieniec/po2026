@@ -8,7 +8,7 @@ public class Parrot extends Animal {
 
 
     public String getDescription() {
-        return "Papuga, Imie" + name + "Ilosc nog: " + iloscNog;
+        return "Papuga, Imie " + name + " Ilosc nog: " + iloscNog;
     }
 
 }

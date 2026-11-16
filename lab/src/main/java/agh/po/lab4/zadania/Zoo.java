@@ -2,33 +2,62 @@ package agh.po.lab4.zadania;
 
 import agh.po.lab4.animals.Animal;
 import agh.po.lab4.animals.Dog;
-import agh.po.lab4.animals.Snake;
 import agh.po.lab4.animals.Parrot;
+import agh.po.lab4.animals.Snake;
 
 import java.util.Random;
 
 public class Zoo {
+
     Animal[] animals = new Animal[100];
-    public void fillANimals(){
+
+    public void fillAnimals() {
         Random rand = new Random();
-        String alfabet = "aqwertyuiopasdfghjklzxcvbnm"
-        for(int i = 0; i < animals.length; i++){
+        String alfabet = "qwertyuiopasdfghjklzxcvbnm";
+
+        for (int i = 0; i < animals.length; i++) {
             int wybor = rand.nextInt(3);
             int dlugoscImienia = rand.nextInt(8) + 1;
             String imie = "";
-            for (int j = 0; j < dlugoscImienia; j++){
-                int indekslitery = rand.nextInt(alfabet.legnth());
 
+            for (int j = 0; j < dlugoscImienia; j++) {
+                int indekslitery = rand.nextInt(alfabet.length());
+                char litera = alfabet.charAt(indekslitery);
+                imie = imie + litera;
             }
 
-            if(wybor == 0){
+            if (wybor == 0) {
                 animals[i] = new Dog(imie);
-            } else if (wybor == 1){
+            } else if (wybor == 1) {
                 animals[i] = new Parrot(imie);
-            } else if (wybor == 1){
+            } else {
                 animals[i] = new Snake(imie);
             }
         }
     }
 
+    public int countLegs() {
+        int suma = 0;
+
+        for (int i = 0; i < animals.length; i++) {
+            suma = suma + animals[i].getLegs();
+        }
+
+        return suma;
+    }
+
+    public void showAnimals() {
+        for (int i = 0; i < animals.length; i++) {
+            System.out.println((i + 1) + ". " + animals[i].getDescription());
+        }
+    }
+
+    public static void main(String[] args) {
+        Zoo zoo = new Zoo();
+        zoo.fillAnimals();
+        zoo.showAnimals();
+
+        int sumaNog = zoo.countLegs();
+        System.out.println("Łączna liczba nóg: " + sumaNog);
+    }
 }

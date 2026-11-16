@@ -7,6 +7,6 @@ public class Snake extends Animal {
     }
 
     public String getDescription() {
-        return "Wąż, Imie" + name + "Ilosc nog: " + iloscNog;
+        return "Wąż, Imie " + name + " Ilosc nog: " + iloscNog;
     }
 }

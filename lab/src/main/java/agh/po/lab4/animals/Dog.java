@@ -7,6 +7,6 @@ public class Dog extends Animal {
     }
 
     public String getDescription() {
-        return "Pies, Imie" + name + "Ilosc nog: " + iloscNog;
+        return "Pies, Imie " + name + " Ilosc nog: " + iloscNog;
     }
 }
