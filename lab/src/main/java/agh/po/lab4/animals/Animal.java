@@ -9,4 +9,7 @@ public abstract class Animal {
     public int getLegs() {
         return iloscNog;
     }
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
 }

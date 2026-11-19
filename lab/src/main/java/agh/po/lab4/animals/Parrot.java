@@ -10,5 +10,7 @@ public class Parrot extends Animal {
     public String getDescription() {
         return "Papuga, Imie " + name + " Ilosc nog: " + iloscNog;
     }
-
+    public void makeSound(){
+        System.out.println("Its not easy being green");
+    }
 }

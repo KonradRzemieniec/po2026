@@ -9,4 +9,8 @@ public class Dog extends Animal {
     public String getDescription() {
         return "Pies, Imie " + name + " Ilosc nog: " + iloscNog;
     }
+
+    public void makeSound(){
+        System.out.println("hau hau");
+    }
 }

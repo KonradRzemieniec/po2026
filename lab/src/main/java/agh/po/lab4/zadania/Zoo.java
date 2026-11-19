@@ -39,8 +39,9 @@ public class Zoo {
     public int countLegs() {
         int suma = 0;
 
-        for (int i = 0; i < animals.length; i++) {
-            suma = suma + animals[i].getLegs();
+        for (Animal animal : animals) {
+            int legs = animal.getLegs();
+            suma = suma + legs;
         }
 
         return suma;
@@ -49,6 +50,7 @@ public class Zoo {
     public void showAnimals() {
         for (int i = 0; i < animals.length; i++) {
             System.out.println((i + 1) + ". " + animals[i].getDescription());
+            animals[i].makeSound();
         }
     }
 
