@@ -11,20 +11,25 @@ public class CodingBatTest {
     @Test
     public void array123() {
         CodingBat cb = new CodingBat();
-        assertTrue(cb.array123(new int[]{1, 2, 3, 4,}));
-        assertTrue(cb.array123(new int[]{1, 2, 3, 5,}));
+
+        assertTrue(cb.array123(new int[]{1, 2, 3, 4}));
+        assertTrue(cb.array123(new int[]{1, 2, 3, 5}));
+        assertFalse(cb.array123(new int[]{1, 2, 4, 3}));
     }
 
     @Test
     public void lucky13() {
         CodingBat cb1 = new CodingBat();
+
         assertTrue(cb1.lucky13(new int[]{2, 7, 2, 8}));
         assertFalse(cb1.lucky13(new int[]{1, 2, 4}));
+        assertFalse(cb1.lucky13(new int[]{2, 4, 3}));
     }
 
     @Test
     public void sameEnds() {
         CodingBat cb2 = new CodingBat();
+
         assertEquals("ab", cb2.sameEnds("abXYab"));
         assertEquals("x", cb2.sameEnds("xx"));
         assertEquals("x", cb2.sameEnds("xxx"));
@@ -35,22 +40,33 @@ public class CodingBatTest {
     @Test
     public void mapAB4() {
         CodingBat cb3 = new CodingBat();
-        Map<String, String> wejscie = new HashMap<>(Map.of("a", "aaa", "b", "bb"));
 
+        Map<String, String> dluzszeA = new HashMap<>(Map.of("a", "aaa", "b", "bb"));
         assertEquals(
                 Map.of("a", "aaa", "b", "bb", "c", "aaa"),
-                cb3.mapAB4(wejscie)
+                cb3.mapAB4(dluzszeA)
+        );
+
+        Map<String, String> dluzszeB = new HashMap<>(Map.of("a", "a", "b", "bbb", "c", "x"));
+        assertEquals(
+                Map.of("a", "a", "b", "bbb", "c", "bbb"),
+                cb3.mapAB4(dluzszeB)
+        );
+
+        Map<String, String> rowne = new HashMap<>(Map.of("a", "ab", "b", "cd"));
+        assertEquals(
+                Map.of("a", "", "b", ""),
+                cb3.mapAB4(rowne)
         );
     }
 
     @Test
     public void pairs() {
         CodingBat cb4 = new CodingBat();
-        String[] wejscie = {"code", "bug"};
 
-        assertEquals(
-                Map.of("c", "e", "b", "g"),
-                cb4.pairs(wejscie)
-        );
+        String[] wejscie = {"code", "bug"};
+        assertEquals(Map.of("c", "e", "b", "g"), cb4.pairs(wejscie));
+        assertEquals(Map.of("a", "a"), cb4.pairs(new String[]{"a"}));
+        assertEquals(Map.of(), cb4.pairs(new String[]{}));
     }
 }
